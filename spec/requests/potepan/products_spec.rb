@@ -2,9 +2,7 @@ require 'rails_helper'
 require 'spree/testing_support/factories'
 
 RSpec.describe "Potepan::Products", type: :request do
-
   describe "#show" do
-
     let!(:product) { create(:product) }
     let!(:image) { create(:image) }
     before do
@@ -32,6 +30,5 @@ RSpec.describe "Potepan::Products", type: :request do
     it "商品名を正常に取得できること" do
       expect(response.body).to include product.description
     end
-
   end
 end
