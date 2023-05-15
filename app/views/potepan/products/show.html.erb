@@ -1,6 +1,4 @@
-<% content_for :title do %>
-    <%= "#{@product.name} -" %>
-<% end %>
+<%= provide :title,@product.name %>
 
 <!-- LIGHT SECTION -->
 <section class="lightSection clearfix pageHeader">
