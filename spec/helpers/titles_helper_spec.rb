@@ -6,7 +6,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     context "productに値が入っている場合" do
       let(:product) { create(:product, name: "SOLIDUS GIRLY") }
       it 'show用タイトルが正常に表示される' do
-        expect(helper.full_title(product.name)).to eq "#{product.name} - BIGBAG Store"
+        expect(helper.full_title("test")).to eq "test - BIGBAG Store"
       end
     end
 
