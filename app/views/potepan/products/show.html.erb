@@ -32,7 +32,7 @@
                   <div class="item <%= 'active' if index.zero? %>" data-thumb="<%= index %>">
                     <%= image_tag image.attachment(:large) %>
                   </div>
-                <%end%>
+                <% end %>
               </div>
             </div>
             <div class="clearfix">
@@ -40,7 +40,7 @@
                 <div class="carousel-inner">
                   <% @product.images.each_with_index do |image, index| %>
                     <div data-target="#carousel" data-slide-to="<%= index %>" class="thumb"><%= image_tag image.attachment(:small) %></div>
-                  <%end%>
+                  <% end %>
                 </div>
                 <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
                   <span class="glyphicon glyphicon-chevron-left"></span>
