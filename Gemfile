@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rails-erd'
   gem 'annotate'
   gem 'capybara'
+  gem 'rubocop-airbnb'
 end
 
 group :development do
@@ -65,7 +66,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "aws-sdk", "~> 3.0"
-
-group :development, :test do
-  gem 'rubocop-airbnb'
-end
