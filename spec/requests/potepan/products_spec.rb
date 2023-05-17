@@ -8,11 +8,6 @@ RSpec.describe "Potepan::Products", type: :request do
     before do
       product.images << image
       get potepan_product_path(product.id)
-      # 画像URLの取得が上手くいかない問題への対応
-      # https://mng-camp.potepan.com/curriculums/document-for-final-task-2#notes-of-image-test
-      ActiveStorage::Current.host = request.base_url
-      product.reload
-      image.reload
     end
 
     it "詳細ページを正常に取得できること" do
