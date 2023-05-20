@@ -20,5 +20,11 @@ RSpec.describe ApplicationHelper, type: :helper do
         expect(full_title(" ")).to eq "BIGBAG Store"
       end
     end
+
+    context "引数が空の場合" do
+      it "index用タイトルが正常に表示される" do
+        expect(full_title("")).to eq "BIGBAG Store"
+      end
+    end
   end
 end
