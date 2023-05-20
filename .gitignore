@@ -198,5 +198,5 @@ crashlytics-build.properties
 fabric.properties
 
 /storage/*
-#erd.pdfを無視する
+
 erd.pdf
