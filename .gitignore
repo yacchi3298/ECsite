@@ -198,3 +198,5 @@ crashlytics-build.properties
 fabric.properties
 
 /storage/*
+
+erd.pdf
