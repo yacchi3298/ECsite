@@ -1,0 +1,31 @@
+<section class="lightSection clearfix pageHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="page-title">
+          <% if current_page?(potepan_category_path(@taxon.id)) %>
+            <h2><%= @taxon.name %></h2>
+          <% else %>
+            <h2><%= @product.name %></h2>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <ol class="breadcrumb pull-right">
+          <li>
+            <%= link_to "Home", potepan_index_path %>
+          </li>
+          <% if current_page?(potepan_category_path(@taxon.id)) %>
+            <li>
+              <a href="#">shop</a>
+            </li>
+            <li class="active"><%= @taxon.name %></li>
+          <% else %>
+            <li class="active"><%= @product.name %></li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
