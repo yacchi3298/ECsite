@@ -3,8 +3,9 @@ require 'spree/testing_support/factories'
 
 RSpec.describe "Potepan::Products", type: :request do
   describe "#show" do
-    let(:product) { create(:product) }
+    let(:product) { create(:product,taxons:[taxon]) }
     let(:image) { create(:image) }
+    let(:taxon) { create(:taxon) }
     before do
       product.images << image
       get potepan_product_path(product.id)
