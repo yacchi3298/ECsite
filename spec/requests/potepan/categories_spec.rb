@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Potepan::Categories", type: :request do
   describe "GET /show" do
-    let!(:taxonomy) { create(:taxonomy) }
+    let(:taxonomy) { create(:taxonomy) }
     let!(:taxon1) { create(:taxon, name: "shirts", parent: taxonomy.root) }
     let!(:taxon2) { create(:taxon, name: "hoodie", parent: taxonomy.root) }
     let(:product1) { create(:product,name: "ruby polo",taxons:[taxon1]) }
