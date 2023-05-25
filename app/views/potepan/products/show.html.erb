@@ -1,5 +1,5 @@
 <%= provide :title, @product.name %>
-<%= render "shared/header_light_section" %>
+<%= render partial: "shared/header_light_section", locals: { name: @product.name } %>
 <section class="mainContent clearfix">
   <div class="container">
     <div class="row singleProduct">

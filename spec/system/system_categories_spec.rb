@@ -4,6 +4,7 @@ RSpec.describe "Categoriesページ", type: :system do
   describe "カテゴリー表示" do
     let(:taxonomy) { create(:taxonomy, name: "Category") }
     let!(:taxon) { create(:taxon, name: "shirts", parent: taxonomy.root) }
+    let!(:taxon2) { create(:taxon, name: "hoodie", parent: taxonomy.root) }
     let(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
     let(:image) { create(:image) }
     before do
@@ -56,8 +57,8 @@ RSpec.describe "Categoriesページ", type: :system do
 
     it "カテゴリーリンククリックでカテゴリーページに正常に遷移できること" do
       within ".side-nav" do
-        click_on 'shirts', match: :first
-        expect(page).to have_current_path potepan_category_path(taxon.id)
+        click_on 'hoodie', match: :first
+        expect(page).to have_current_path potepan_category_path(taxon2.id)
       end
     end
   end
