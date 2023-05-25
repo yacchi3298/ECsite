@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Categoriesページ", type: :system do
   describe "カテゴリー表示" do
-    let(:taxonomy) { create(:taxonomy,name:"Category") }
+    let(:taxonomy) { create(:taxonomy, name: "Category") }
     let!(:taxon) { create(:taxon, name: "shirts", parent: taxonomy.root) }
-    let(:product) { create(:product,name: "ruby polo",price:15,taxons:[taxon]) }
+    let(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
     let(:image) { create(:image) }
     before do
       driven_by(:rack_test)
@@ -28,9 +28,9 @@ RSpec.describe "Categoriesページ", type: :system do
     it "カテゴリーが正常に表示されること" do
       within ".side-nav" do
         click_on 'Category'
+        expect(page).to have_content "shirts"
+        expect(page).to have_content "Category"
       end
-      expect(page).to have_content "shirts"
-      expect(page).to have_content "Category"
     end
 
     it "header_light_section HOMEリンククリックでトップページに正常に遷移できること" do

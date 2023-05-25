@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "SystemProducts", type: :system do
   describe "products表示" do
     let!(:taxon) { create(:taxon) }
-    let(:product) { create(:product,name: "ruby polo",price:15,taxons:[taxon]) }
+    let(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
     let(:image) { create(:image) }
     before do
       driven_by(:rack_test)
@@ -25,8 +25,8 @@ RSpec.describe "SystemProducts", type: :system do
     end
 
     it "一覧ページへ戻るリンククリックでカテゴリーページに遷移できること" do
-        click_on '一覧ページへ戻る'
-        expect(page).to have_current_path potepan_category_path(taxon.id)
+      click_on '一覧ページへ戻る'
+      expect(page).to have_current_path potepan_category_path(taxon.id)
     end
   end
 end

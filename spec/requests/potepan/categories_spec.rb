@@ -5,8 +5,8 @@ RSpec.describe "Potepan::Categories", type: :request do
     let(:taxonomy) { create(:taxonomy) }
     let!(:taxon1) { create(:taxon, name: "shirts", parent: taxonomy.root) }
     let!(:taxon2) { create(:taxon, name: "hoodie", parent: taxonomy.root) }
-    let(:product1) { create(:product,name: "ruby polo",taxons:[taxon1]) }
-    let(:product2) { create(:product,name: "solidus girly",price: 12,taxons:[taxon2]) }
+    let(:product1) { create(:product, name: "ruby polo", taxons: [taxon1]) }
+    let(:product2) { create(:product, name: "solidus girly", price: 12, taxons: [taxon2]) }
     let(:image) { create(:image) }
     before do
       product1.images << image
