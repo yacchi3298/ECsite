@@ -22,12 +22,12 @@
                     <div data-target="#carousel" data-slide-to="<%= index %>" class="thumb"><%= image_tag image.attachment(:small) %></div>
                   <% end %>
                 </div>
-                <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
+                <%= link_to "#thumbcarousel",class:"left carousel-control",role:"button", 'data-slide':"prev" do %>
                   <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
+                <% end %>
+                <%= link_to "#thumbcarousel",class:"right carousel-control",role:"button", 'data-slide':"next" do %>
                   <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
+                <% end %>
               </div>
             </div>
           </div>
@@ -54,7 +54,7 @@
               </select>
             </span>
             <div class="btn-area">
-              <a href="cart_page.html" class="btn btn-primary btn-block">カートへ入れる<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              <%= link_to "cart_page.html",class:"btn btn-primary btn-block" do %>カートへ入れる<i class="fa fa-angle-right" aria-hidden="true"></i><% end %>
             </div>
           </div>
         </div>
