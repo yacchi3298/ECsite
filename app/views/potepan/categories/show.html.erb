@@ -1,5 +1,5 @@
 <%= provide :title, @taxon.name %>
-<%= render partial: "shared/header_light_section", locals: { name: @taxon.name } %>
+<%= render "shared/header_light_section", name: @taxon.name %>
 <section class="mainContent clearfix productsContent">
   <div class="container">
     <div class="row">
@@ -11,8 +11,8 @@
               <ul class="nav navbar-nav side-nav">
                 <% @taxonomies.each do |taxonomy| %>
                   <li>
-                    <%= link_to "javascript:;", 'data-toggle':"collapse", 'data-target':"##{taxonomy.id}" do %><%= taxonomy.name %><i class="fa fa-plus"></i><% end %>
-                    <ul id="<%= taxonomy.id %>" class="collapse collapseItem">
+                    <%= link_to "javascript:;", 'data-toggle':"collapse", 'data-target':"#taxonomy-#{taxonomy.id}" do %><%= taxonomy.name %><i class="fa fa-plus"></i><% end %>
+                    <ul id="taxonomy-<%= taxonomy.id %>" class="collapse collapseItem">
                       <% taxonomy.taxons.leaves.each do |taxon| %>
                         <li>
                           <%= link_to potepan_category_path(taxon.id) do %>
