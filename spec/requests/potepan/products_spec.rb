@@ -1,10 +1,10 @@
 require 'rails_helper'
-require 'spree/testing_support/factories'
 
 RSpec.describe "Potepan::Products", type: :request do
   describe "#show" do
-    let(:product) { create(:product) }
+    let(:product) { create(:product, taxons: [taxon]) }
     let(:image) { create(:image) }
+    let(:taxon) { create(:taxon) }
     before do
       product.images << image
       get potepan_product_path(product.id)
@@ -22,7 +22,7 @@ RSpec.describe "Potepan::Products", type: :request do
       expect(response.body).to include product.display_price.to_s
     end
 
-    it "商品名を正常に取得できること" do
+    it "商品説明を正常に取得できること" do
       expect(response.body).to include product.description
     end
   end

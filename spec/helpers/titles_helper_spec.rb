@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'spree/testing_support/factories'
 
 RSpec.describe ApplicationHelper, type: :helper do
   describe "#full_title" do
