@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "SystemProducts", type: :system do
   let!(:taxon) { create(:taxon) }
-  let(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
-  let(:image) { create(:image) }
+  let!(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
+  let!(:image) { create(:image) }
   before do
     driven_by(:rack_test)
     product.images << image
@@ -21,7 +21,7 @@ RSpec.describe "SystemProducts", type: :system do
 
     it "商品が正常に表示されること" do
       expect(page).to have_content "ruby polo"
-      expect(page).to have_content product.display_price.to_s
+      expect(page).to have_content product.display_price
     end
   end
 

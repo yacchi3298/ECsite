@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Categoriesページ", type: :system do
-  let(:taxonomy) { create(:taxonomy, name: "Category") }
+  let!(:taxonomy) { create(:taxonomy, name: "Category") }
   let!(:taxon) { create(:taxon, name: "shirts", parent: taxonomy.root) }
   let!(:taxon2) { create(:taxon, name: "hoodie", parent: taxonomy.root) }
-  let(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
-  let(:product2) { create(:product, name: "solidus girly", price: 12, taxons: [taxon2]) }
-  let(:image) { create(:image) }
+  let!(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
+  let!(:product2) { create(:product, name: "solidus girly", price: 12, taxons: [taxon2]) }
+  let!(:image) { create(:image) }
+  let!(:image2) { create(:image) }
   before do
     driven_by(:rack_test)
     product.images << image
+    product2.images << image2
     visit potepan_category_path(taxon.id)
   end
 
@@ -24,9 +26,9 @@ RSpec.describe "Categoriesページ", type: :system do
 
     it "商品が正常に表示されること" do
       expect(page).to have_content "ruby polo"
-      expect(page).to have_content product.display_price.to_s
+      expect(page).to have_content product.display_price
       expect(page).not_to have_content "solidus girly"
-      expect(page).not_to have_content product2.display_price.to_s
+      expect(page).not_to have_content product2.display_price
     end
 
     it "サイドバーのカテゴリーが正常に表示されること" do
@@ -67,7 +69,7 @@ RSpec.describe "Categoriesページ", type: :system do
 
     it "カテゴリーリンククリックでカテゴリーページに正常に遷移できること" do
       within ".side-nav" do
-        click_on 'hoodie', match: :first
+        click_on 'hoodie'
         expect(page).to have_current_path potepan_category_path(taxon2.id)
       end
     end
