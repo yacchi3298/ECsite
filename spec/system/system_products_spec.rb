@@ -5,7 +5,6 @@ RSpec.describe "SystemProducts", type: :system do
   let!(:product) { create(:product, name: "ruby polo", price: 15, taxons: [taxon]) }
   let!(:image) { create(:image) }
   before do
-    driven_by(:rack_test)
     product.images << image
     visit potepan_product_path(product.id)
   end

@@ -9,7 +9,6 @@ RSpec.describe "Categoriesページ", type: :system do
   let!(:image) { create(:image) }
   let!(:image2) { create(:image) }
   before do
-    driven_by(:rack_test)
     product.images << image
     product2.images << image2
     visit potepan_category_path(taxon.id)
@@ -27,6 +26,9 @@ RSpec.describe "Categoriesページ", type: :system do
     it "商品が正常に表示されること" do
       expect(page).to have_content "ruby polo"
       expect(page).to have_content product.display_price
+    end
+
+    it "異なるカテゴリーの商品が表示されないこと" do
       expect(page).not_to have_content "solidus girly"
       expect(page).not_to have_content product2.display_price
     end
