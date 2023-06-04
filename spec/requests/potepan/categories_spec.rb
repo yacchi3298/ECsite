@@ -19,9 +19,9 @@ RSpec.describe "Potepan::Categories", type: :request do
 
     it "商品を正常に取得できること" do
       expect(response.body).to include product1.name
-      expect(response.body).to include product1.display_price.to_s
+      expect(response.body).to include product1.display_price
       expect(response.body).not_to include product2.name
-      expect(response.body).not_to include product2.display_price.to_s
+      expect(response.body).not_to include product2.display_price
     end
 
     it "カテゴリーリストを正常に取得できること" do
