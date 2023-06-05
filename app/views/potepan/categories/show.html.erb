@@ -77,7 +77,7 @@
               <div class="productBox">
                 <%= link_to potepan_product_path(product.id) do %>
                   <div class="productImage clearfix">
-                    <% image = product.images.find { |i| i.position == 1 } %>
+                    <% image = product.images.first %>
                     <%= image_tag(image.attachment(:small)) if image.present? %>
                   </div>
                   <div class="productCaption clearfix">
