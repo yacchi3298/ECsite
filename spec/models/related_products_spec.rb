@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Potepan::ProductDecorator, type: :model do
   describe "relation_products" do
-    let!(:taxon1)             { create(:taxon) }
-    let!(:taxon2)             { create(:taxon) }
-    let!(:taxon3)             { create(:taxon) }
-    let!(:unrelated_product)  { create(:product, taxons: [taxon3]) }
+    let(:taxon1)             { create(:taxon) }
+    let(:taxon2)             { create(:taxon) }
+    let(:taxon3)             { create(:taxon) }
+    let!(:unrelated_product) { create(:product, taxons: [taxon3]) }
     let!(:product) { create(:product, taxons: [taxon1, taxon2]) }
     let!(:related_products) { create_list(:product, 4, taxons: [taxon1, taxon2]) }
 
-    it "relation_productsで関連商品を正常に取得できること" do
+    it "related_products[0]が関連商品にふくまれること" do
       expect(product.relation_products).to include related_products[0]
     end
 
