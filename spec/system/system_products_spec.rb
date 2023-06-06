@@ -40,9 +40,10 @@ RSpec.describe "SystemProducts", type: :system do
       end
     end
 
-    it "関連商品が4件表示される" do
+    it "関連商品が4件まで表示される" do
       within ".productsContent" do
         expect(page).to have_selector ".productBox", count: 4
+        expect(page).not_to have_content related_products[4].name
       end
     end
   end

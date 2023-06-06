@@ -10,7 +10,6 @@ RSpec.describe Potepan::ProductDecorator, type: :model do
     let!(:related_products) { create_list(:product, 4, taxons: [taxon1, taxon2]) }
 
     it "relation_productsで関連商品を正常に取得できること" do
-      expect(product.relation_products).to be_truthy
       expect(product.relation_products).to include related_products[0]
     end
 
